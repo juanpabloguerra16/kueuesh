@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  namespace: alpha
+  generateName: sample-job-
+  annotations:
+    kueue.x-k8s.io/queue-name: alpha-q
+spec:
+  ttlSecondsAfterFinished: 60
+  parallelism: 3
+  completions: 3
+  suspend: true
+  template:
+    spec:
+      containers:
+      - name: dummy-job
+        image: gcr.io/k8s-staging-perf-tests/sleep:latest
+        args: ["10s"]
+        resources:
+          requests:
+            cpu: 1
+            memory: "1Gi"
+      restartPolicy: Never

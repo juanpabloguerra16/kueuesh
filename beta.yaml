@@ -1,0 +1,28 @@
+apiVersion: kueue.x-k8s.io/v1alpha1
+kind: ClusterQueue
+metadata:
+  name: beta-cq
+spec:
+  namespaceSelector: {}
+  resources:
+  - name: "cpu"
+    flavors:
+    - name: on-demand
+      quota:
+        min: 10
+    - name: spot
+      quota:
+        min: 0
+  - name: "memory"
+    flavors:
+    - name: default
+      quota:
+        min: 36Gi
+---
+apiVersion: kueue.x-k8s.io/v1alpha1
+kind: Queue
+metadata:
+  namespace: beta
+  name: beta-q
+spec:
+  clusterQueue: beta-cq
