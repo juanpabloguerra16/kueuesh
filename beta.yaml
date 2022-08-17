@@ -3,6 +3,7 @@ kind: ClusterQueue
 metadata:
   name: beta-cq
 spec:
+  cohort: all
   namespaceSelector: {}
   resources:
   - name: "cpu"

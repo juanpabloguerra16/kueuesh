@@ -3,7 +3,7 @@ kind: ClusterQueue
 metadata:
   name: spot-cq
 spec:
-  cohort: researchers
+  cohort: other
   namespaceSelector: {}
   resources:
   - name: "cpu"
