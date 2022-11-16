@@ -5,8 +5,7 @@ Follow these suggested steps to observe the capabilities of queue:
 1. To setup a cluster, run `./create_cluster.sh`
 2. Start a pane to observe the status of each ClusterQueue:
     ```
-    watch -n 2 kubectl get clusterqueue alpha-cq -o wide
-    watch -n 2 kubectl get clusterqueue beta-cq -o wide
+    watch -n 2 kubectl get clusterqueue -o wide
     ```
 3. Create jobs in each namespace:
 

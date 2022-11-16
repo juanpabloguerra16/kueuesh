@@ -6,7 +6,7 @@ CLUSTER_NAME="${CLUSTER_NAME:-demo}"
 PROJECT_ID="${PROJECT_ID:-${USER}-gke-dev}"
 REGION="${REGION:-us-central1}"
 MACHINE_TYPE="${MACHINE_TYPE:-e2-standard-4}"
-KUEUE_VERSION="${KUEUE_VERSION:-v0.1.1}"
+KUEUE_VERSION="${KUEUE_VERSION:-v0.2.1}"
 
 
 gcloud container clusters create ${CLUSTER_NAME} --project=${PROJECT_ID} --region ${REGION} --machine-type ${MACHINE_TYPE} --release-channel rapid --cluster-version 1.24 --num-nodes 1 --node-labels spot=false --enable-autoscaling --max-nodes=10 --autoscaling-profile optimize-utilization
